@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+
+# Virtual environments
+venv/
+env/
+.env/
+.venv/
+
+# Jupyter / Colab
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# PyTorch model weights & checkpoints
+*.pth
+*.pt
+*.ckpt
+checkpoints/
+saved_models/
+runs/
+
+# Dataset (never commit BraTS data)
+*.nii
+*.nii.gz
+*.tar
+*.tar.gz
+*.zip
+brats_25d_numpy/
+data/raw/
+data/processed/
+*.npy
+
+# Results & outputs (add specific ones manually if needed)
+results/predictions/
+results/logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+secrets.txt
+api_keys.txt
