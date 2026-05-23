@@ -35,7 +35,7 @@ This repository contains the official implementation of our 2.5D multi-scale fee
 | nnU-Net | 3D CNN Ensemble | Required (LCC) | ~0.9250 |
 | **Proposed (Ours)** | **2.5D CNN (Multi-scale)** | **None** | **0.9088** |
 
-Inference speed: **~268 slices/second** — full BraTS volume segmented in **under 1 second**.
+Inference speed: **~268 slices/second**
 
 ---
 
