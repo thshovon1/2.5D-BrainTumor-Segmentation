@@ -44,15 +44,35 @@ Inference speed: **~268 slices/second** — full BraTS volume segmented in **und
 ```
 ├── data/
 │   └── preprocess.py          # BraTS .tar → 2.5D NumPy chunks
-├── models/
-│   └── ascension.py           # Model architecture (ASCENSION)
-├── utils/
-│   └── losses.py              # Hybrid loss (Dice + BCE + Focal)
-├── train.py                   # Training script
-├── inference.py               # Inference script
+├── 2.5D Brain Tumor.ipynb     # Full training & inference notebook
+├── best.pth                   # Pretrained model weights (2.62 MB)
 ├── requirements.txt
 └── README.md
 ```
+
+---
+
+## Pretrained Weights
+
+The best model checkpoint is included in this repository as `best.pth` (2.62 MB).
+
+To load and run inference:
+
+```python
+import torch
+
+# Define your model first (see notebook for full architecture)
+model = ASCENSION()
+model.load_state_dict(torch.load('best.pth', map_location='cpu'))
+model.eval()
+
+# Run inference on a single 2.5D slice
+with torch.no_grad():
+    input_tensor = torch.randn(1, 12, 160, 160)  # replace with real data
+    prediction = model(input_tensor)
+```
+
+The optimal binarization threshold is **t = 0.6**, selected via sweep on the validation set.
 
 ---
 
@@ -61,9 +81,9 @@ Inference speed: **~268 slices/second** — full BraTS volume segmented in **und
 This project uses the **BraTS 2021** dataset. You must request access separately:
 
 - Register and download at: [Synapse BraTS 2021](https://www.synapse.org/#!Synapse:syn25829067/wiki/610863)
-- After download, place the `.tar` file and update the path in `data/preprocess.py`
+- After download, place the `.tar` file and update `TAR_FILE_PATH` in `data/preprocess.py`
 
-The dataset is **not** included in this repository.
+The dataset (~240 GB) is **not** included in this repository.
 
 ---
 
@@ -74,7 +94,7 @@ The preprocessing pipeline converts raw BraTS `.nii.gz` volumes into 2.5D NumPy 
 **What it does:**
 1. Loads all 4 MRI modalities (T1, T1ce, T2, FLAIR)
 2. Applies per-subject Z-score normalization on the brain mask
-3. Stacks adjacent axial slices {i-1, i, i+1} across all 4 modalities → 12-channel input tensor
+3. Stacks adjacent axial slices {i−1, i, i+1} across all 4 modalities → 12-channel input tensor
 4. Center-crops/pads each slice to 160×160
 5. Saves inputs as `slice_XXX_x.npy` and ground-truth masks as `slice_XXX_y.npy`
 
@@ -87,11 +107,9 @@ python data/preprocess.py
 
 ## Training
 
-```bash
-python train.py
-```
+The full training pipeline is available in `2.5D Brain Tumor.ipynb`. Open it in Google Colab or Jupyter.
 
-Key hyperparameters (edit in `train.py`):
+Key hyperparameters:
 
 | Parameter | Value |
 |---|---|
@@ -103,17 +121,17 @@ Key hyperparameters (edit in `train.py`):
 | Empty slice ratio (ρ) | 0.25 |
 | Loss weights | Dice=0.5, BCE=0.3, Focal=0.2 |
 
-**Hardware used:** NVIDIA RTX 4060 Ti (16GB VRAM), 32GB RAM. Training time: ~90 minutes.
+**Hardware used:** NVIDIA RTX 4060 Ti (16 GB VRAM), 32 GB RAM. Training time: ~90 minutes.
 
 ---
 
 ## Inference
 
-```bash
-python inference.py --input_dir /path/to/npy_slices --threshold 0.6
-```
+Inference is included in the notebook. The model processes full BraTS volumes slice-by-slice:
 
-The optimal global threshold (t = 0.6) was selected via a sweep on the validation set.
+- **Speed:** ~268 slices/second
+- **Full volume (155 slices):** under 1 second
+- **Threshold:** t = 0.6
 
 ---
 
