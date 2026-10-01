@@ -1,3 +1,0 @@
-# Table 7: Dice + Focal
-base: ../proposed.yaml
-loss: {w_dice: 0.5, w_bce: 0.0, w_focal: 0.2}

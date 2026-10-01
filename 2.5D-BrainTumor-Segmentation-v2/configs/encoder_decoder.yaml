@@ -1,8 +1,0 @@
-# Controlled comparison (paper Section 4.6, Table 14): identical encoder,
-# attention gates and ASPP; the three direct heads are replaced by a decoder
-# (two upsampling stages fusing gated F2 and F1) and one full-resolution head.
-base: proposed.yaml
-model:
-  arch: encoder_decoder
-loss:
-  head_weights: [1.0]
