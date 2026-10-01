@@ -1,0 +1,3 @@
+# Table 11: + geometric (flip, rotation) and intensity (gamma, Gaussian noise) augmentation
+base: ../proposed.yaml
+training: {augment: true}

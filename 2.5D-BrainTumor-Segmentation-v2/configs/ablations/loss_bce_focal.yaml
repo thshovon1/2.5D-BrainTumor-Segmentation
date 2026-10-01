@@ -1,0 +1,3 @@
+# Table 7: BCE + Focal
+base: ../proposed.yaml
+loss: {w_dice: 0.0, w_bce: 0.3, w_focal: 0.2}

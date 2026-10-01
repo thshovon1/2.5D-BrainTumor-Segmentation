@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Decoder-Free 2.5D Brain Tumor Segmentation (code)"
+version: 2.0.0
+date-released: 2026-10-01
+license: MIT
+repository-code: "https://github.com/thshovon1/2.5D-BrainTumor-Segmentation"
+authors:
+  - family-names: Shovon
+    given-names: S M Tanvir Hassan
+    affiliation: American International University-Bangladesh
+    email: thshovon@aiub.edu
+  - family-names: Shufian
+    given-names: Abu
+    affiliation: American International University-Bangladesh
+  - family-names: Sheikh
+    given-names: Protik Parvez
+    affiliation: American International University-Bangladesh
+  - family-names: Alam
+    given-names: Sadman Shahriar
+    affiliation: American International University-Bangladesh
+  - family-names: Sayem
+    given-names: Md. Shaoran
+    affiliation: American International University-Bangladesh
+keywords:
+  - brain tumor segmentation
+  - BraTS 2021
+  - 2.5D
+  - deep supervision
+  - medical image segmentation
+preferred-citation:
+  type: unpublished
+  title: "Decoder-Free 2.5D Brain Tumor Segmentation: Balanced Sampling and a Hybrid Loss Eliminate Post-processing on BraTS 2021"
+  authors:
+    - family-names: Shovon
+      given-names: S M Tanvir Hassan
+    - family-names: Shufian
+      given-names: Abu
+    - family-names: Sheikh
+      given-names: Protik Parvez
+    - family-names: Alam
+      given-names: Sadman Shahriar
+    - family-names: Sayem
+      given-names: Md. Shaoran
+  year: 2026
+  notes: "Manuscript under review"

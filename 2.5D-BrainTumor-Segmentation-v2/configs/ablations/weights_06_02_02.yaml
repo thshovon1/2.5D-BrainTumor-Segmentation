@@ -1,0 +1,3 @@
+# Table 10: Dice/BCE/Focal = 0.6/0.2/0.2
+base: ../proposed.yaml
+loss: {w_dice: 0.6, w_bce: 0.2, w_focal: 0.2}

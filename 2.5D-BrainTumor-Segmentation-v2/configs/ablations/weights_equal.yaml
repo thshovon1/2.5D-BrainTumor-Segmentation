@@ -1,0 +1,3 @@
+# Table 10: equal weighting 0.33/0.33/0.34
+base: ../proposed.yaml
+loss: {w_dice: 0.33, w_bce: 0.33, w_focal: 0.34}
