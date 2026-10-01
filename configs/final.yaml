@@ -1,0 +1,7 @@
+# Final runs for the held-out test estimate (paper Table 5): same settings as
+# proposed.yaml, trained on the 851 training subjects (the 150 test subjects
+# removed); checkpoint and threshold are still selected on the 250 validation
+# subjects. Run with --seed 2026, 2027 and 2028.
+base: proposed.yaml
+data:
+  train_split: train

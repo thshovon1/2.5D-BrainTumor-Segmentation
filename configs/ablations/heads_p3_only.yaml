@@ -1,0 +1,3 @@
+# Table 8: single P3 head, no auxiliary losses (1.0/0.0/0.0)
+base: ../proposed.yaml
+loss: {head_weights: [1.0, 0.0, 0.0]}

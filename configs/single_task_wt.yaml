@@ -1,0 +1,6 @@
+# Single-task WT variant (paper Section 4.3): one output channel (WT), same
+# backbone, loss and sampling. history.csv records the validation WT Dice for
+# every threshold at every epoch (Table A1, Figures 4-6).
+base: proposed.yaml
+model:
+  n_classes: 1

@@ -1,0 +1,3 @@
+# Table 9: rho = 0 (tumour-present slices only)
+base: ../proposed.yaml
+training: {rho: 0.0}
